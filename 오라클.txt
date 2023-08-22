@@ -1,0 +1,136 @@
+오라클 : 사용자 有
+
+=== 유저의 종류 ===
+DBA    : DB 관리자 / DBMS를 관리할 수 있는 권한이 있음
+	sysdba
+개발자 : 
+사용자 : 
+
+
+*명령 프롬프트
+sqlplus / as sysdba
+SQL > SHOW USER
+USER is "SYS"    #sysdba로 접속했지만 실질적인 유저는 sys
+
+HR 이라는 유저가 이미 존재함
+DROP USER HR : HR 유저 삭제
+
+
+
+=========
+* SQL commans line
+
+
+SQL > CONN / AS SYSDBA  #DBA 유저로 접속
+# sysdba로 접속하지만 유저 이름은 sys
+
+
+conn /as sysdba = conn sysdba
+
+show user    #USER is " "
+
+conn sysdba
+
+alter user hr identified by 1234 account unlock;     #hr로 유저 변경 (hr 유저는 기본적으로 존재함)
+
+show user    # USER is "SYS"
+
+conn hr 
+
+show user   # USER is "hr"
+
+
+
+DROP USER HR - 유저 삭제
+HR 이라는 유저가 이미 존재함
+
+
+
+==========
+유저 만들기 - 최고 관리자 sys만이 만들 수 있음. 접속 필요!
+
+conn /as sysdba
+
+create user scott identified by 1234;
+
+granr connect(연결 권한), resource(객체를 활용할 수 있는 권한) to scott;   #scott 유저에게 권한 부여
+
+
+
+==========
+table 만들기    - sys가 만든 테이블은 다른 유저가 볼 수 없음
+
+drop table department :  혹시 존재할 수 있는 테이블 삭제ㅛ
+
+CREATE TABLE DEPTARTMENTS(
+		 DEPTNO NUMBER(2) CONSTRAINT PK_DEPT PRIMARY KEY,
+		 DNAME VARCHAR2(14),     #varchar(n) : 최대로 들어갈 수 있는 문자열
+		 LOC VARCHAR2(13) ) ;
+
+desc DEPARTMENTS; 테이블 출력    NULL - 아무 것도 없는 것
+
+
+
+=======
+drop 삭제
+
+drop table DEPTARTMENTS;     >Table dropped.
+
+desc DEPARTMENTS;   >  object DEPARTMENTS does not exist
+
+
+
+======
+table에 데이터 넣고 추출하기
+
+* : 모든 것
+commit; 최종적으로 실행하라
+
+
+======
+
+오라클 SQL Developer 
+
+DDL 데이터 정의어 (data definition language) 
+
+CREATE : 자동 commit
+ALTER : 변경
+DROP : 삭제
+
+OBJECT(TABLE, VIEW, SYNONYM, USER)
+
+======
+
+DML 데이터 조작어 (Data Management Language)
+
+INSERT : 데이터 넣기
+SELECT : 데이터 선택하기
+UPDATE : 바꿔서 저장
+DELETE : 지우기
+
+======
+
+DCL 데이터 제어어 (Data Control Language)
+
+COMMIT
+ROLLBACK
+
+
+====== 유저의 종류 ===
+
+DBA    : DB 관리자 / DBMS를 관리할 수 있는 권한이 있음
+	sysdba, DDL, DCL, DML
+
+개발자 : DML (insert / select / update / delete) (Java, Python, ...)
+
+
+사용자 : DML (insert / select / update / delete)
+
+
+======DBMS의 종류 ======
+
+- Oracle : 대/중규모 
+- MS-SQL : 중/소규모
+- DB2 (IBM) : 금융권
+- MySQL : 소기업
+- Informix, Sybase, ...
