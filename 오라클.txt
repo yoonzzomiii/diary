@@ -1,10 +1,4 @@
-오라클 : 사용자 有
-
-=== 유저의 종류 ===
-DBA    : DB 관리자 / DBMS를 관리할 수 있는 권한이 있음
-	sysdba
-개발자 : 
-사용자 : 
+오라클은 명령 프롬프트와 SQL COMMANS LINE 두 개로 실행할 수 있다.
 
 
 *명령 프롬프트
@@ -12,7 +6,7 @@ sqlplus / as sysdba
 SQL > SHOW USER
 USER is "SYS"    #sysdba로 접속했지만 실질적인 유저는 sys
 
-HR 이라는 유저가 이미 존재함
+HR 이라는 유저는 오라클 자체에 원래 존재함.
 DROP USER HR : HR 유저 삭제
 
 
@@ -60,7 +54,7 @@ granr connect(연결 권한), resource(객체를 활용할 수 있는 권한) to
 ==========
 table 만들기    - sys가 만든 테이블은 다른 유저가 볼 수 없음
 
-drop table department :  혹시 존재할 수 있는 테이블 삭제ㅛ
+drop table department :  혹시 존재할 수 있는 테이블 삭제(이전에 만들어 두었을 수도 있으니)
 
 CREATE TABLE DEPTARTMENTS(
 		 DEPTNO NUMBER(2) CONSTRAINT PK_DEPT PRIMARY KEY,
@@ -72,7 +66,7 @@ desc DEPARTMENTS; 테이블 출력    NULL - 아무 것도 없는 것
 
 
 =======
-drop 삭제
+drop : 삭제
 
 drop table DEPTARTMENTS;     >Table dropped.
 
