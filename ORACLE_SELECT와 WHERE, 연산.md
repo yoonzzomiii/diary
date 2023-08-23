@@ -1,18 +1,15 @@
 ## SELECT문 알아보기
 
 ```SQL
-DESC EMP;
-
-select *
-    from emp;
+select *   
+    from emp;   -- * 전체를 불러온다.
     
-SELECT EMPNO, ENAME, DNO
-    FROM EMP;
-    
-SELECT DISTINCT DNO
+SELECT EMPNO, ENAME, DNO   --선택한 칼럼만 불러온다.
     FROM EMP;
 ```
 
+SELECT DISTINCT DNO
+    FROM EMP;
 
 SELECT DISTINCT DNO
     FROM EMP
