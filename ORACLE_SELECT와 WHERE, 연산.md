@@ -1,6 +1,6 @@
 ## SELECT문 알아보기
 
-'''SQL
+```SQL
 DESC EMP;
 
 select *
@@ -11,7 +11,7 @@ SELECT EMPNO, ENAME, DNO
     
 SELECT DISTINCT DNO
     FROM EMP;
-'''
+```
 
 
 SELECT DISTINCT DNO
