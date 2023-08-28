@@ -78,7 +78,7 @@ CREATE TABLE EMPDEPT_DDL
         WHERE 1 <> 1;  --FALSE >> 데이터 없이, 열 구조만 같은 빈 테이블 생성
 ```
 
-#### 2. ALTER : 테이블의 열 변경
+### 2. ALTER : 테이블의 열 변경
 - ADD : 테이블에 열 추가
 ```SQL
 ALTER TABLE EMP_ALTER
@@ -104,14 +104,16 @@ ALTER TABLE EMP_ALTER
 ```
 
 <BR/>
-#### 3. RENAME : 테이블의 이름 변경
+
+### 3. RENAME : 테이블의 이름 변경
 - 변경 후 본래의 테이블 이름은 사용 불가
 ```SQL
 RENAME EMP_ALTER TO EMP_RENAME;
 ```
 
 <BR/>
-#### 4. TRUNCATE : 테이블의 데이터를 삭제
+
+### 4. TRUNCATE : 테이블의 데이터를 삭제
 - 테이블의 전체 데이터 삭제
 - DDL문, ROLLBACK 불가
 - DELETE문으로도 수행 가능 >> ROLLBACK 가능
@@ -120,6 +122,7 @@ TRUNCATE TABLE EMP_RENAME;
 ```
 
 <BR/>
+
 #### 5. DROP : 테이블과 저장된 데이터 모두 삭제
 - 데이터 뿐만 아니라 테이블까지 삭제
 ```SQL
